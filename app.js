@@ -5,6 +5,7 @@ let random_choice = Math.floor(Math.random() * 6);
 let word = word_list[random_choice];
 let word_arr = []
 let guessed_letters = []
+let numGuesses = 5;
 
 for(let i = 0; i < word.length; i++)
 {
@@ -13,6 +14,7 @@ for(let i = 0; i < word.length; i++)
 
 let container = document.getElementById('wordContainer');
 
+let guessSpots = word_arr.length
 for(let i = 0; i < word.length; i++)
 {
     let letterBox = document.createElement('div');
@@ -28,7 +30,10 @@ submitBtn.addEventListener('click', () => {
     guess(letter);
     
 })
+// For Testing Purposes
 console.log(word)
+// _______________________________
+
 const guess = (letter) => {
     this.letter = letter;
     
@@ -43,6 +48,9 @@ const guess = (letter) => {
         let index = (word_arr.indexOf(letter))
         let box = document.querySelectorAll('.letter')[index]
         box.innerHTML = letter
+        guessSpots --;
+        console.log(guessSpots)
+        gameActive(numGuesses, guessSpots)
     } 
     else {
         console.log('letter not in word')
@@ -50,4 +58,18 @@ const guess = (letter) => {
        guessed.innerHTML += ` ${letter},`
     }
 
+}
+
+const gameActive = (count, spots) => {
+    this.count = count
+    if(guessSpots === 0)
+    {
+        alert('User Wins')
+    }
+    if (count > 0){
+        console.log('Game Still active')
+    }
+    else {
+        console.log('Game Over')
+    }
 }
