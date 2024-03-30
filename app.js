@@ -97,7 +97,7 @@ const gameActive = (count, spots) => {
     }
     else {
         announcement.style.color = "red"
-        announcement.innerHTML = "Game Over: Unable to guess to guess the word"
+        announcement.innerHTML = "Game Over: Unable to guess the word"
         disabled();
     }
 }
