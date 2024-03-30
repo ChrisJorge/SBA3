@@ -60,13 +60,13 @@ const guess = (letter) => {
     if(word_arr.includes(letter))
     {
         let index = (word_arr.indexOf(letter))
+        console.log(index)
         let box = document.querySelectorAll('.letter')[index]
         announcement.style.color = "green"
         announcement.innerHTML = `Guessed Letter ${letter.toUpperCase()} is in the word!`
         box.innerHTML = letter.toUpperCase()
         guessed.innerHTML += ` ${letter.toUpperCase()},`
         guessSpots --;
-        console.log(guessSpots)
         gameActive(numGuesses, guessSpots)
     } 
     else {
@@ -80,10 +80,14 @@ const guess = (letter) => {
 }
 
 const gameActive = (count, spots) => {
-    this.count = count
+    this.count = count;
+    let announcement = document.querySelector('.upperContainer').lastElementChild;
     if(guessSpots === 0)
     {
-        alert('User Wins')
+        announcement.style.color = "green";
+        announcement.innerHTML = "You correctly guessed the word!!!";
+        disabled()
+        return;
     }
     if (count > 0){
         console.log('Game Still active')
@@ -92,3 +96,11 @@ const gameActive = (count, spots) => {
         console.log('Game Over')
     }
 }
+
+let disabled = () => {
+    let input = document.querySelector('#input');
+    input.setAttribute('disabled', true);
+    let submitBtn = document.querySelector('.submit-btn');
+    submitBtn.setAttribute('disabled', true);
+}
+
