@@ -34,8 +34,7 @@ const guess = (letter) => {
     
     if(guessed_letters.includes(letter))
     {
-        console.log('Letter has already been guessed');
-        return;
+      console.log('Letter already guessed')
     }
     guessed_letters.push(letter)
 
@@ -47,6 +46,8 @@ const guess = (letter) => {
     } 
     else {
         console.log('letter not in word')
+        let guessed = document.querySelector('.guessedLetters');
+       guessed.innerHTML += ` ${letter},`
     }
 
 }
