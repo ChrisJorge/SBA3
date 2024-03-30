@@ -27,10 +27,7 @@ for(let i = 0; i < word.length; i++)
 
 let submitBtn = document.querySelector(".submit-btn")
 submitBtn.addEventListener('click', () => {
-    let char = document.getElementById('input');
-    let letter = char.value;
-    letter = letter.toLowerCase();
-    char.value = ''
+    let letter = getLetter()
     guess(letter);
     
 })
@@ -38,10 +35,7 @@ submitBtn.addEventListener('click', () => {
 window.addEventListener('keydown', (event) => {
    if(event.key === 'Enter')
    {
-    let char = document.getElementById('input');
-    let letter = char.value;
-    letter = letter.toLowerCase();
-    char.value = ''
+    let letter = getLetter()
     guess(letter)
    }
 })
@@ -73,6 +67,7 @@ const guess = (letter) => {
         searchForLetter(letter)
         announcement.style.color = "green"
         announcement.innerHTML = `Guessed Letter ${letter.toUpperCase()} is in the word!`
+        guessed.innerHTML += ` ${letter.toUpperCase()},`
         gameActive(numGuesses, guessSpots)
     } 
     else {
@@ -131,4 +126,12 @@ const searchForLetter = (letter) => {
             continue;
         }
     }
+}
+
+const getLetter = () => {
+    let char = document.getElementById('input');
+    let letter = char.value;
+    letter = letter.toLowerCase();
+    char.value = '';
+    return letter;
 }
