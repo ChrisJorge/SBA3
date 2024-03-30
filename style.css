@@ -1,0 +1,12 @@
+#wordContainer{
+    width: 100%;
+    height: 25vh;
+    border: solid black 3px;
+    display: flex;
+}
+
+.letter{
+    width: 100px;
+    height: 25vh;
+    border: solid red;
+}
