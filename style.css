@@ -10,6 +10,10 @@
     height: 25vh;
     border: solid black;
     margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
 }
 
 .inputContainer{
