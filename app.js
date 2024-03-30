@@ -91,7 +91,7 @@ const gameActive = (count, spots) => {
         disabled()
         return;
     }
-    console.log(count)
+    
     if (count > 0){
         
     }
