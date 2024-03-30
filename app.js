@@ -5,7 +5,10 @@ let random_choice = Math.floor(Math.random() * 6);
 let word = word_list[random_choice];
 let word_arr = []
 let guessed_letters = []
+let approved  = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let numGuesses = 5;
+
+let guessesLeft = document.querySelector('.attemptsLeft')
 
 for(let i = 0; i < word.length; i++)
 {
@@ -36,7 +39,14 @@ console.log(word)
 
 const guess = (letter) => {
     this.letter = letter;
+    console.log(typeof(letter))
     let announcement = document.querySelector('.upperContainer').lastElementChild;
+    if(!approved.includes(letter))
+    {
+        announcement.style.color = "red";
+        announcement.innerHTML = "Guess is not a letter, try again"
+        return;
+    }
     let guessed = document.querySelector('.guessedLetters')
     
     if(guessed_letters.includes(letter))
@@ -60,8 +70,11 @@ const guess = (letter) => {
         gameActive(numGuesses, guessSpots)
     } 
     else {
-        console.log('letter not in word')
-       guessed.innerHTML += ` ${letter},`
+       announcement.style.color = "red"
+       announcement.innerHTML = `The letter ${letter.toUpperCase()} is not in the word`
+       numGuesses --;
+       guessed.innerHTML += ` ${letter.toUpperCase()},`
+       guessesLeft.innerHTML = `Guesses Left: ${numGuesses}`
     }
 
 }
