@@ -11,3 +11,13 @@
     border: solid black;
     margin-left: 5px;
 }
+
+.inputContainer{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    margin-left: 15px;
+}
