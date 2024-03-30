@@ -39,7 +39,6 @@ console.log(word)
 
 const guess = (letter) => {
     this.letter = letter;
-    console.log(typeof(letter))
     let announcement = document.querySelector('.upperContainer').lastElementChild;
     if(!approved.includes(letter))
     {
@@ -59,14 +58,9 @@ const guess = (letter) => {
 
     if(word_arr.includes(letter))
     {
-        let index = (word_arr.indexOf(letter))
-        console.log(index)
-        let box = document.querySelectorAll('.letter')[index]
+        searchForLetter(letter)
         announcement.style.color = "green"
         announcement.innerHTML = `Guessed Letter ${letter.toUpperCase()} is in the word!`
-        box.innerHTML = letter.toUpperCase()
-        guessed.innerHTML += ` ${letter.toUpperCase()},`
-        guessSpots --;
         gameActive(numGuesses, guessSpots)
     } 
     else {
@@ -104,3 +98,21 @@ let disabled = () => {
     submitBtn.setAttribute('disabled', true);
 }
 
+let searchForLetter = (letter) => {
+    this.letter = letter
+    console.log(letter)
+    for(i = 0; i < word_arr.length; i++)
+    {
+        if(word_arr[i] === letter)
+        {
+            let index = i
+            console.log(index)
+            let box = document.querySelectorAll('.letter')[index];
+            box.innerHTML = letter.toUpperCase();
+            guessSpots --;
+        }
+        else {
+            continue;
+        }
+    }
+}
