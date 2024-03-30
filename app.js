@@ -34,6 +34,17 @@ submitBtn.addEventListener('click', () => {
     guess(letter);
     
 })
+
+window.addEventListener('keydown', (event) => {
+   if(event.key === 'Enter')
+   {
+    let char = document.getElementById('input');
+    let letter = char.value;
+    letter = letter.toLowerCase();
+    char.value = ''
+    guess(letter)
+   }
+})
 // For Testing Purposes
 console.log(word)
 // _______________________________
@@ -96,14 +107,14 @@ const gameActive = (count, spots) => {
     }
 }
 
-let disabled = () => {
+const disabled = () => {
     let input = document.querySelector('#input');
     input.setAttribute('disabled', true);
     let submitBtn = document.querySelector('.submit-btn');
     submitBtn.setAttribute('disabled', true);
 }
 
-let searchForLetter = (letter) => {
+const searchForLetter = (letter) => {
     this.letter = letter
     console.log(letter)
     for(i = 0; i < word_arr.length; i++)
