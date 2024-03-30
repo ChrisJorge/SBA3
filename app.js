@@ -36,10 +36,14 @@ console.log(word)
 
 const guess = (letter) => {
     this.letter = letter;
+    let announcement = document.querySelector('.upperContainer').lastElementChild;
+    let guessed = document.querySelector('.guessedLetters')
     
     if(guessed_letters.includes(letter))
     {
-      console.log('Letter already guessed')
+      announcement.style.color = "red"
+      announcement.innerHTML = `The letter ${letter.toUpperCase()} has already been guessed, try another letter`
+      return;
     }
     guessed_letters.push(letter)
 
@@ -47,14 +51,16 @@ const guess = (letter) => {
     {
         let index = (word_arr.indexOf(letter))
         let box = document.querySelectorAll('.letter')[index]
-        box.innerHTML = letter
+        announcement.style.color = "green"
+        announcement.innerHTML = `Guessed Letter ${letter.toUpperCase()} is in the word!`
+        box.innerHTML = letter.toUpperCase()
+        guessed.innerHTML += ` ${letter.toUpperCase()},`
         guessSpots --;
         console.log(guessSpots)
         gameActive(numGuesses, guessSpots)
     } 
     else {
         console.log('letter not in word')
-        let guessed = document.querySelector('.guessedLetters');
        guessed.innerHTML += ` ${letter},`
     }
 
