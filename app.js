@@ -18,3 +18,9 @@ for(let i = 0; i < word.length; i++)
     letter.setAttribute('class', 'letter');
     container.appendChild(letter);
 }
+
+let submitBtn = document.querySelector(".submit-btn")
+submitBtn.addEventListener('click', () => {
+    let char = document.getElementById('input')
+    console.log(char.value)
+})
