@@ -88,7 +88,7 @@ const guess = (letter) => {
         // Function that adds the letter into its corresponding box
         searchForLetter(letter)
         announcement.style.color = "green"
-        announcement.innerHTML = `Guessed Letter ${letter.toUpperCase()} is in the word!`
+        announcement.innerHTML = `Letter ${letter.toUpperCase()} is in the word!`
         guessed.innerHTML += ` ${letter.toUpperCase()},`
         gameActive(numGuesses, guessSpots)
     } 
