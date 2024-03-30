@@ -1,12 +1,13 @@
 #wordContainer{
     width: 100%;
     height: 25vh;
-    border: solid black 3px;
     display: flex;
+    justify-content: center;
 }
 
 .letter{
     width: 100px;
     height: 25vh;
-    border: solid red;
+    border: solid black;
+    margin-left: 5px;
 }
