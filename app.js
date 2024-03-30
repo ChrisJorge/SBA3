@@ -30,6 +30,7 @@ submitBtn.addEventListener('click', () => {
     let char = document.getElementById('input');
     let letter = char.value;
     letter = letter.toLowerCase();
+    char.value = ''
     guess(letter);
     
 })
