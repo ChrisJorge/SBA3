@@ -96,9 +96,17 @@ const gameActive = (count, spots) => {
         
     }
     else {
-        announcement.style.color = "red"
-        announcement.innerHTML = "Game Over: Unable to guess the word"
+        announcement.style.color = "red";
+        announcement.innerHTML = "Game Over: Unable to guess the word";
         disabled();
+        let container = document.querySelector('.inputContainer');
+        let btn = document.createElement('button');
+        btn.setAttribute('class', 'show-btn');
+        btn.setAttribute('onClick', 'show()');
+        btn.setAttribute('innerHTML', 'Show Word');
+        btn.textContent = "Click to show word"
+        container.appendChild(btn);
+
     }
 }
 
@@ -134,4 +142,13 @@ const getLetter = () => {
     letter = letter.toLowerCase();
     char.value = '';
     return letter;
+}
+
+const show = () => 
+{
+   for(let i = 0; i < word_arr.length; i++)
+   {
+    let box = document.querySelectorAll('.letter')[i];
+    box.innerHTML = word_arr[i].toUpperCase()
+   }
 }

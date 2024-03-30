@@ -41,6 +41,7 @@ p{
     justify-content: center;
 }
 
-.submit-btn{
+.submit-btn, .show-btn{
     margin-left: 15px;
 }
+
