@@ -1,6 +1,6 @@
-let word_list = ['example', 'test', 'dictionary', 'perscholas', 'coding', 'software'];
+let word_list = ['computer', 'test', 'object', 'perscholas', 'coding', 'software', 'integer', 'boolean', 'float', 'array'];
 
-let random_choice = Math.floor(Math.random() * 6);
+let random_choice = Math.floor(Math.random() * 10);
 
 let word = word_list[random_choice];
 let word_arr = []
