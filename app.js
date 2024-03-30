@@ -113,7 +113,13 @@ const gameActive = (count, spots) => {
         announcement.style.color = "green";
         announcement.innerHTML = "You correctly guessed the word!!!";
         disabled()
-        return;
+        let container = document.querySelector('.inputContainer');
+        btn = document.createElement('button');
+        btn.setAttribute('class', 'show-btn');
+        btn.setAttribute('onClick', 'reset()');
+        btn.textContent = "Replay"
+        container.appendChild(btn);
+
     }
 
     if (count > 0){
@@ -128,8 +134,13 @@ const gameActive = (count, spots) => {
         let btn = document.createElement('button');
         btn.setAttribute('class', 'show-btn');
         btn.setAttribute('onClick', 'show()');
-        btn.setAttribute('innerHTML', 'Show Word');
         btn.textContent = "Click to show word"
+        container.appendChild(btn);
+
+        btn = document.createElement('button');
+        btn.setAttribute('class', 'show-btn');
+        btn.setAttribute('onClick', 'reset()');
+        btn.textContent = "Replay"
         container.appendChild(btn);
 
     }
@@ -177,4 +188,8 @@ const show = () =>
     let box = document.querySelectorAll('.letter')[i];
     box.innerHTML = word_arr[i].toUpperCase()
    }
+}
+
+const reset = () =>{
+    window.location.reload();
 }
