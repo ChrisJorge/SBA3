@@ -1,3 +1,15 @@
+.upperContainer{
+    width: 100%;
+    height: 40vh;
+    border: solid black;
+    margin-bottom: 15px;
+}
+
+h1{
+    text-align: center;
+}
+
+
 #wordContainer{
     width: 100%;
     height: 25vh;
