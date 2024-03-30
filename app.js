@@ -69,6 +69,7 @@ const guess = (letter) => {
        numGuesses --;
        guessed.innerHTML += ` ${letter.toUpperCase()},`
        guessesLeft.innerHTML = `Guesses Left: ${numGuesses}`
+       gameActive(numGuesses, guessSpots)
     }
 
 }
@@ -83,11 +84,14 @@ const gameActive = (count, spots) => {
         disabled()
         return;
     }
+    console.log(count)
     if (count > 0){
-        console.log('Game Still active')
+        
     }
     else {
-        console.log('Game Over')
+        announcement.style.color = "red"
+        announcement.innerHTML = "Game Over: Unable to guess to guess the word"
+        disabled();
     }
 }
 
