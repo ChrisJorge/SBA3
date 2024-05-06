@@ -16,4 +16,7 @@ This project uses functions, query selectors, and event listeners to randomly ch
   <li>CSS</li>
   <li>JavaScript</li>
 </ul>
-
+<h1>Link</h1>
+<ul>
+  <li>https://chrisjorge.github.io/Word-Guesser/</li>
+</ul>
